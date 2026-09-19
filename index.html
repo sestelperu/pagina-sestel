@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SESTEL - Internet de Alta Velocidad Hogar y Empresas</title>
+
+    <!-- Swiper CSS (Carrusel) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Google Fonts & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-primary-blue: #001D3D;
+            --color-secondary-blue: #003566;
+            --color-orange-brand: #FF6600;
+            --color-orange-hover: #E65C00;
+            --color-bg-light: #F4F6F9;
+            --color-text-dark: #1E293B;
+            --font-main: 'Poppins', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+        }
+
+        body {
+            background-color: var(--color-bg-light);
+            color: var(--color-text-dark);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR */
+        .navbar {
+            background-color: #FFFFFF;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo img {
+            height: 48px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--color-primary-blue);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--color-orange-brand);
+        }
+
+        /* BOTÓN CTA NARANJA */
+        .btn-cta {
+            background-color: var(--color-orange-brand);
+            color: #FFFFFF !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 700 !important;
+            box-shadow: 0 4px 12px rgba(255, 102, 0, 0.25);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--color-orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(255, 102, 0, 0.35);
+        }
+
+        /* SLIDER HERO */
+        .hero-slider-container {
+            width: 100%;
+            height: 500px;
+            position: relative;
+        }
+
+        .swiper { width: 100%; height: 100%; }
+
+        .swiper-slide {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            color: #FFFFFF;
+        }
+
+        .swiper-slide::before {
+            content: "";
+            position: absolute;
+            top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(90deg, rgba(0,29,61,0.88) 0%, rgba(0,29,61,0.35) 100%);
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+        }
+
+        .badge-discount {
+            background-color: var(--color-orange-brand);
+            color: #FFF;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 4px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .slide-title {
+            font-size: 40px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 15px;
+        }
+
+        .slide-title span { color: var(--color-orange-brand); }
+
+        .slide-subtitle {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 25px;
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #FFFFFF !important;
+            background: rgba(0, 0, 0, 0.3);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--color-orange-brand) !important;
+            width: 28px !important;
+            border-radius: 4px !important;
+        }
+
+        /* SECCIONES DE PLANES (HOGAR Y EMPRESAS) */
+        .plans-container {
+            padding: 70px 8%;
+            max-width: 1250px;
+            margin: 0 auto;
+        }
+
+        .section-header { text-align: center; margin-bottom: 45px; }
+        .section-header h2 { font-size: 32px; color: var(--color-primary-blue); font-weight: 800; }
+        .section-header p { color: #64748B; font-size: 16px; margin-top: 5px; }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .plan-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 35px 25px;
+            border: 2px solid #E2E8F0;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .plan-card.highlight {
+            border-color: var(--color-orange-brand);
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .badge-popular {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-orange-brand);
+            color: #FFF;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .plan-speed { font-size: 38px; font-weight: 800; color: var(--color-primary-blue); margin: 15px 0 5px; }
+        .plan-price { font-size: 34px; font-weight: 800; color: var(--color-orange-brand); margin-bottom: 20px; }
+        .plan-price span { font-size: 15px; color: #64748B; font-weight: 400; }
+
+        .plan-features { list-style: none; margin-bottom: 25px; text-align: left; border-top: 1px solid #F1F5F9; padding-top: 20px; }
+        .plan-features li { padding: 8px 0; font-size: 14px; color: #475569; }
+        .plan-features i { color: var(--color-orange-brand); margin-right: 8px; }
+
+        /* SECCIÓN EMPRESAS */
+        .bg-empresas {
+            background-color: #FFFFFF;
+            border-top: 1px solid #E2E8F0;
+            border-bottom: 1px solid #E2E8F0;
+        }
+
+        /* FOOTER ANARANJADO */
+        .site-footer {
+            background-color: var(--color-orange-brand);
+            color: #FFFFFF;
+            padding: 60px 8% 30px;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-brand img {
+            height: 50px;
+            width: auto;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1); /* Convierte logo a blanco para contraste */
+            display: block;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .social-icon {
+            width: 38px;
+            height: 38px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #FFFFFF;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #FFFFFF;
+            color: var(--color-orange-brand);
+            transform: translateY(-3px);
+        }
+
+        .footer-col h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            color: #FFFFFF;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+
+        .footer-col a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .footer-col a:hover {
+            text-decoration: underline;
+            opacity: 1;
+        }
+
+        .footer-col strong {
+            display: block;
+            margin-top: 8px;
+            color: #FFFFFF;
+        }
+
+        .btn-reclamos {
+            display: inline-block;
+            background-color: #FFFFFF;
+            color: var(--color-orange-brand) !important;
+            font-weight: 800;
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin-top: 15px;
+            text-transform: uppercase;
+            font-size: 13px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .btn-reclamos:hover {
+            background-color: var(--color-primary-blue);
+            color: #FFFFFF !important;
+            text-decoration: none !important;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            padding-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* WHATSAPP FLOAT */
+        .btn-whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: #25D366;
+            color: #FFF;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="https://via.placeholder.com/200x60/001D3D/FF6600?text=FIBERPRO" alt="FiberPro Logo">
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#planes-hogar">Planes Hogar</a></li>
+            <li><a href="#planes-empresas">Planes Empresas</a></li>
+            <li><a href="https://wa.me/51982921813" target="_blank" class="btn-cta"><i class="fa-brands fa-whatsapp"></i> Contactar</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SLIDER -->
+    <section class="hero-slider-container">
+        <div class="swiper heroSwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1600&auto=format&fit=crop');">
+                    <div class="slide-content">
+                        <span class="badge-discount">Promoción Exclusiva Hogar</span>
+                        <h1 class="slide-title">1000 Mbps de Fibra <span>100% Simétrica</span></h1>
+                        <p class="slide-subtitle">Navega, juega y trabaja sin interrupciones con tecnología Router WiFi 6 incluida.</p>
+                        <a href="#planes-hogar" class="btn-cta">Ver Planes Hogar</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide" style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1600&auto=format&fit=crop');">
+                    <div class="slide-content">
+                        <span class="badge-discount">Soluciones B2B / Pymes</span>
+                        <h1 class="slide-title">Conectividad Dedicada <span>para Tu Empresa</span></h1>
+                        <p class="slide-subtitle">SLA garantizado, IP Pública Fija y atención técnica preferencial 24/7.</p>
+                        <a href="#planes-empresas" class="btn-cta">Ver Planes Empresas</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <!-- PLANES HOGAR -->
+    <section class="plans-container" id="planes-hogar">
+        <div class="section-header">
+            <h2>Planes Hogar</h2>
+            <p>Velocidad garantizada con ultra baja latencia para el hogar</p>
+        </div>
+
+        <div class="plans-grid">
+            <div class="plan-card">
+                <h3>Plan Hogar Básico</h3>
+                <div class="plan-speed">300 Mbps</div>
+                <div class="plan-price">S/ 59.99 <span>/mes</span></div>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> 100% Fibra Óptica</li>
+                    <li><i class="fa-solid fa-check"></i> Velocidad Simétrica</li>
+                    <li><i class="fa-solid fa-check"></i> Router Doble Banda</li>
+                    <li><i class="fa-solid fa-check"></i> Soporte tecnico permanente</li>
+                </ul>
+                <a href="https://wa.me/51982921813" target="_blank" class="btn-cta" style="background: var(--color-primary-blue);">Contratar Plan</a>
+            </div>
+
+            <div class="plan-card highlight">
+                <div class="badge-popular">MÁS POPULAR</div>
+                <h3>Plan Hogar / Ultra</h3>
+                <div class="plan-speed">500 Mbps</div>
+                <div class="plan-price">S/ 79.99 <span>/mes</span></div>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> 100% Fibra Óptica</li>
+                    <li><i class="fa-solid fa-check"></i> Velocidad Simétrica</li>
+                    <li><i class="fa-solid fa-check"></i> <strong>Router WiFi 6 Gratis</strong></li>
+                    <li><i class="fa-solid fa-check"></i> Incluye SESTVGO+120 Canales</li>
+                </ul>
+                <a href="https://wa.me/51982921813" target="_blank" class="btn-cta">¡Lo Quiero Ahora!</a>
+            </div>
+
+            <div class="plan-card">
+                <h3>Plan Hogar Pro</h3>
+                <div class="plan-speed">800 Mbps</div>
+                <div class="plan-price">S/ 99.99 <span>/mes</span></div>
+                <ul class="plan-features">
+                    <li><i class="fa-solid fa-check"></i> 100% Fibra Óptica</li>
+                    <li><i class="fa-solid fa-check"></i> Velocidad Simétrica</li>
+                    <li><i class="fa-solid fa-check"></i> Router WiFi 6</li>
+                    <li><i class="fa-solid fa-check"></i> Incluye SESTVGO+120 Canales</li>
+                </ul>
+                <a href="https://wa.me/51982821813" target="_blank" class="btn-cta" style="background: var(--color-primary-blue);">Contratar Plan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANES EMPRESAS -->
+    <div class="bg-empresas">
+        <section class="plans-container" id="planes-empresas">
+            <div class="section-header">
+                <h2>Planes Corporativos y Empresas</h2>
+                <p>Enlaces dedicados y simétricos diseñados para asegurar la continuidad de tu negocio</p>
+            </div>
+
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <h3>Empresa Básico</h3>
+                    <div class="plan-speed">300 Mbps</div>
+                    <div class="plan-price">S/ 79.99 <span>/mes</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> 100% Fibra Óptica</li>
+                        <li><i class="fa-solid fa-check"></i> Velocidad 1:1 Simétrica</li>
+                        <li><i class="fa-solid fa-check"></i> Soporte Técnico Prioritario 24/7</li>
+                        <li><i class="fa-solid fa-check"></i> Prioridad páginas Estado</li>
+                    </ul>
+                    <a href="https://wa.me/51982921813" target="_blank" class="btn-cta" style="background: var(--color-primary-blue);">Contratar Plan</a>
+                </div>
+
+                <div class="plan-card highlight">
+                    <div class="badge-popular">RECOMENDADO</div>
+                    <h3>Business Pro</h3>
+                    <div class="plan-speed">600 Mbps</div>
+                    <div class="plan-price">S/ 99.99 <span>/mes</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> 100% Fibra Óptica</li>
+                        <li><i class="fa-solid fa-check"></i> Velocidad 1:1 Simétrica</li>
+                        <li><i class="fa-solid fa-check"></i> <strong>IP Pública Estatica</strong></li>
+                        <li><i class="fa-solid fa-check"></i> Soporte VIP Especializado 24/7</li>
+                        <li><i class="fa-solid fa-check"></i> Prioridad páginas Estado</li>
+                    </ul>
+                    <a href="https://wa.me/51982921813" target="_blank" class="btn-cta">¡Lo Quiero Ahora!</a>
+                </div>
+
+                <div class="plan-card">
+                    <h3>Corporativo Max</h3>
+                    <div class="plan-speed">800 Mbps</div>
+                    <div class="plan-price">S/ 120 <span>/mes</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> 100% Fibra Óptica</li>
+                        <li><i class="fa-solid fa-check"></i> Velocidad 1:1 Simétrica</li>
+                        <li><i class="fa-solid fa-check"></i> IP Pública Estatica</li>
+                        <li><i class="fa-solid fa-check"></i> Soporte VIP Especializado 24/7</li>
+                        <li><i class="fa-solid fa-check"></i> Prioridad páginas Estado</li>
+                    </ul>
+                    <a href="https://wa.me/51982921813" target="_blank" class="btn-cta" style="background: var(--color-primary-blue);">Contratar Plan</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER CORPORATIVO ANARANJADO -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            
+            <!-- COLUMNA 1: LOGO Y REDES SOCIALES EDITABLES -->
+            <div class="footer-col">
+                <div class="footer-brand">
+                    <img src="https://via.placeholder.com/200x60/001D3D/FF6600?text=FIBERPRO" alt="FiberPro Logo">
+                </div>
+                <!-- ÍCONOS SOCIALES EDITABLES -->
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/19T9QTnYn1/" target="_blank" class="social-icon" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/sestelperu?stkn=eDFla2c2MnlzNmV4" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@sestelperu?_r=1&_t=ZS-99lqF4wj42G" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                </div>
+            </div>
+
+            <!-- COLUMNA 2: CONTACTO -->
+            <div class="footer-col">
+                <h4>Contacto:</h4>
+                <ul>
+                    <li>
+                        <strong>Dirección fiscal:</strong>
+                        Av. Francisco Melendez Mza. G Lote. 4 Apv. Aproviña Ii
+
+                    </li>
+                    <li>
+                        <strong>Área de ventas:</strong>
+                        982921813
+                    </li>
+                    <li>
+                        <strong>Email:</strong>
+                        <a href="mailto:admin@sestelperu.pe">admin@sestelperu.pe</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 3: INFORMACIÓN PARA EL CLIENTE -->
+            <div class="footer-col">
+                <h4>Información para el cliente</h4>
+                <ul>
+                    <li><a href="#">Condiciones de Uso</a></li>
+                    <li><a href="#">Política de Uso de Internet</a></li>
+                    <li><a href="#">Información que debes saber</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Mide tu velocidad</a></li>
+                    <li><a href="#">Compara tu Plan</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 4: TUS DERECHOS -->
+            <div class="footer-col">
+                <h4>Tus derechos</h4>
+                <ul>
+                    <li><a href="#">1. Guía de Derechos de Clientes</a></li>
+                    <li><a href="#">2. Reglamento de Neutralidad</a></li>
+                    <li><a href="#">3. Política de Protección de Datos Personales</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMNA 5: ATENCIÓN DE RECLAMOS Y SOLICITUDES EN LÍNEA -->
+            <div class="footer-col">
+                <h4>Atención de reclamos y solicitudes en línea:</h4>
+                <ul>
+                    <li><a href="#">Seguimiento de reclamos</a></li>
+                    <li><a href="#">Libro de reclamaciones</a></li>
+                    <li><a href="#">Solicitudes de línea</a></li>
+                </ul>
+                <a href="#" class="btn-reclamos"><i class="fa-solid fa-book"></i> Libro de Reclamaciones</a>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 FiberPro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/51982921813" class="btn-whatsapp-float" target="_blank" title="Contacto directo WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.heroSwiper', {
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            speed: 600,
+            pagination: { el: '.swiper-pagination', clickable: true },
+            navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+        });
+    </script>
+</body>
+</html>
