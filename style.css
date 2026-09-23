@@ -86,7 +86,7 @@ body {
 /* SLIDER HERO */
 .hero-slider-container {
   width: 100%;
-  height: 500px;
+  height: 600px;
   position: relative;
 }
 
@@ -172,8 +172,8 @@ body {
 
 /* SECCIONES DE PLANES (HOGAR Y EMPRESAS) */
 .plans-container {
-  padding: 70px 8%;
-  max-width: 1250px;
+  padding: 60px 8%;
+  /* max-width: 1250px; */
   margin: 0 auto;
 }
 
@@ -195,7 +195,7 @@ body {
 .plans-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 20px;
 }
 
 .plan-card {
@@ -402,4 +402,68 @@ body {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   z-index: 2000;
   text-decoration: none;
+}
+
+/* =========================================
+   CONFIGURACIÓN GENERAL DE LOS BANNERS
+========================================= */
+
+.heroSwiper .swiper-slide {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* =========================================
+   BANNER HOGAR - DESKTOP
+   Más de 1024px
+========================================= */
+
+.banner-hogar {
+  background-image: url("/img/banner_hogar_desktop.png");
+}
+
+/* =========================================
+   BANNER HOGAR - TABLET
+   601px hasta 1024px
+========================================= */
+
+@media (max-width: 1024px) {
+  .banner-hogar {
+    background-image: url("/img/banner_hogar_tablet.png");
+  }
+}
+
+/* =========================================
+   BANNER HOGAR - MÓVIL
+   Hasta 600px
+========================================= */
+
+@media (max-width: 600px) {
+  .banner-hogar {
+    background-image: url("/img/banner_hogar_movil.png");
+  }
+}
+
+/* =========================
+   BANNER 2 - EMPRESA
+========================= */
+
+/* Desktop */
+.banner-empresa {
+  background-image: url("/img/banner_empresa_desktop.png");
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .banner-empresa {
+    background-image: url("/img/banner_empresa_tablet.png");
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .banner-empresa {
+    background-image: url("/img/banner_empresa_movil.png");
+  }
 }
