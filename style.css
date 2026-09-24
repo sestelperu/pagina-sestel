@@ -420,7 +420,7 @@ body {
 ========================================= */
 
 .banner-hogar {
-  background-image: url("../img/banner_hogar_desktop.png");
+  background-image: url("./img/banner_hogar_desktop.png");
 }
 
 /* =========================================
@@ -430,7 +430,7 @@ body {
 
 @media (max-width: 1024px) {
   .banner-hogar {
-    background-image: url("../img/banner_hogar_tablet.png");
+    background-image: url("./img/banner_hogar_tablet.png");
   }
 }
 
@@ -441,7 +441,7 @@ body {
 
 @media (max-width: 600px) {
   .banner-hogar {
-    background-image: url("../img/banner_hogar_movil.png");
+    background-image: url("./img/banner_hogar_movil.png");
   }
 }
 
@@ -451,19 +451,19 @@ body {
 
 /* Desktop */
 .banner-empresa {
-  background-image: url("../img/banner_empresa_desktop.png");
+  background-image: url("./img/banner_empresa_desktop.png");
 }
 
 /* Tablet */
 @media (max-width: 1024px) {
   .banner-empresa {
-    background-image: url("../img/banner_empresa_tablet.png");
+    background-image: url("./img/banner_empresa_tablet.png");
   }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   .banner-empresa {
-    background-image: url("../img/banner_empresa_movil.png");
+    background-image: url("./img/banner_empresa_movil.png");
   }
 }
