@@ -415,55 +415,77 @@ body {
 }
 
 /* =========================================
-   BANNER HOGAR - DESKTOP
-   Más de 1024px
+   BANNER HOGAR
+   Breakpoints: 576 - 768 - 992 - 1200 - 1400
 ========================================= */
 
+/* Móvil - hasta 767px */
 .banner-hogar {
-  background-image: url("./img/banner_hogar_desktop.png");
+  background-image: url("./img/banner_hogar_576.png");
 }
 
-/* =========================================
-   BANNER HOGAR - TABLET
-   601px hasta 1024px
-========================================= */
-
-@media (max-width: 1024px) {
+/* Tablet - desde 768px */
+@media (min-width: 768px) {
   .banner-hogar {
-    background-image: url("./img/banner_hogar_tablet.png");
+    background-image: url("./img/banner_hogar_768.png");
+  }
+}
+
+/* Laptop / Desktop pequeño - desde 992px */
+@media (min-width: 992px) {
+  .banner-hogar {
+    background-image: url("./img/banner_hogar_992.png");
+  }
+}
+
+/* Desktop - desde 1200px */
+@media (min-width: 1200px) {
+  .banner-hogar {
+    background-image: url("./img/banner_hogar_1200.png");
+  }
+}
+
+/* Desktop grande - desde 1400px */
+@media (min-width: 1400px) {
+  .banner-hogar {
+    background-image: url("./img/banner_hogar_1400.png");
   }
 }
 
 /* =========================================
-   BANNER HOGAR - MÓVIL
-   Hasta 600px
+   BANNER EMPRESA
+   Breakpoints: 576 - 768 - 992 - 1200 - 1400
 ========================================= */
 
-@media (max-width: 600px) {
-  .banner-hogar {
-    background-image: url("./img/banner_hogar_movil.png");
-  }
-}
-
-/* =========================
-   BANNER 2 - EMPRESA
-========================= */
-
-/* Desktop */
+/* Móvil - hasta 767px */
 .banner-empresa {
-  background-image: url("./img/banner_empresa_desktop.png");
+  background-image: url("./img/banner_empresa_576.png");
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
+/* Tablet - desde 768px */
+@media (min-width: 768px) {
   .banner-empresa {
-    background-image: url("./img/banner_empresa_tablet.png");
+    background-image: url("./img/banner_empresa_768.png");
   }
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+/* Laptop / Desktop pequeño - desde 992px */
+@media (min-width: 992px) {
   .banner-empresa {
-    background-image: url("./img/banner_empresa_movil.png");
+    background-image: url("./img/banner_empresa_992.png");
+  }
+}
+
+/* Desktop - desde 1200px */
+@media (min-width: 1200px) {
+  .banner-empresa {
+    background-image: url("./img/banner_empresa_1200.png");
+  }
+}
+
+/* Desktop grande - desde 1400px */
+@media (min-width: 1400px) {
+  .banner-empresa {
+    background-image: url("./img/banner_empresa_1400.png");
   }
 }
